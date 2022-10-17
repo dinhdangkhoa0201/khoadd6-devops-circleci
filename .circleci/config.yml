@@ -10,11 +10,8 @@ jobs:
                     command: |
                         echo $KHOA_ENV
 workflows:
-    welcome:
+    test-env-vars:
         jobs:
-            -   print_hello
-            -   print_world:
-                    requires:
-                        -   print_hello
+            -   build
 
 
