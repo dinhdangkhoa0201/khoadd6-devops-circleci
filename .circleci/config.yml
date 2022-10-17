@@ -1,17 +1,14 @@
 version: 2.1
-orbs:
-    welcome: circleci/welcome-orb@0.4.1
 jobs:
-    print_hello:
+    build:
         docker:
-            -   image: circleci/node:13.8.0
+            -   image: cimg/base:2020.01
         steps:
-            -   run: echo hello
-    print_world:
-        docker:
-            -   image: circleci/node:13.8.0
-        steps:
-            -   run: echo world
+            -   checkout
+            -   run:
+                    name: "echo an env var that is part of our project"
+                    command: |
+                        echo $KHOA_ENV
 workflows:
     welcome:
         jobs:
